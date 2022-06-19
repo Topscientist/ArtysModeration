@@ -177,7 +177,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "replit"
-version = "3.2.0"
+version = "3.2.4"
 description = "A library for interacting with features of repl.it"
 category = "main"
 optional = false
@@ -255,7 +255,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "41661c6c1d871c137050b4fd06b28275f496e3320ace1bea1d5896558892e485"
+content-hash = "a0237882ff906615a416ad5d2d4d69254f548b482d0ac3410755e918f71c1c2d"
 
 [metadata.files]
 aiohttp = [
@@ -460,8 +460,8 @@ multidict = [
     {file = "multidict-5.1.0.tar.gz", hash = "sha256:25b4e5f22d3a37ddf3effc0710ba692cfc792c2b9edfb9c05aefe823256e84d5"},
 ]
 replit = [
-    {file = "replit-3.2.0-py3-none-any.whl", hash = "sha256:e45d8e4a0cbc1c51f784b48cbdcc3570ea25a0bb2ec5fdb775ab38795b86869b"},
-    {file = "replit-3.2.0.tar.gz", hash = "sha256:7bd3d8a3393d3246db762d1e11440b92a8aa0a21d694af6eb12bc3193e61b03c"},
+    {file = "replit-3.2.4-py3-none-any.whl", hash = "sha256:4fa5895e1e090ba23c179641bc88ab0486d1bea696515aa3147fce55733e29e1"},
+    {file = "replit-3.2.4.tar.gz", hash = "sha256:39c660d57c479d321f143a04d75d1297accf24fc91c0113f56d6a279b20e9427"},
 ]
 requests = [
     {file = "requests-2.26.0-py2.py3-none-any.whl", hash = "sha256:6c1246513ecd5ecd4528a0906f910e8f0f9c6b8ec72030dc9fd154dc1a6efd24"},
