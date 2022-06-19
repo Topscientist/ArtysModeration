@@ -158,11 +158,19 @@ async def on_message(message):
 
       else:
         embed = discord.Embed(
-          title='Error',
+          title='💥 Error 401',
             description=
             'Only the guild owner can change this!',
           color=discord.Colour.red())
         await message.channel.send(embed=embed)
+
+    elif msg.startswith('<@829680222478925864>'):
+      embed = discord.Embed(
+        title='👋 Hello There!',
+          description=
+          'My name is Artys Moderation, To get a list of my commands type `arty help`',
+          color=discord.Colour.green())
+      await message.channel.send(embed=embed)
 
     elif msg.startswith('arty cheer up false'):
       owner = message.guild.owner_id
@@ -245,12 +253,12 @@ async def on_message(message):
         embed.add_field(name=f"ℹ️ Bot Info:", value="arty info", inline=False)
         embed.add_field(name=f"✉️ Join Our Discord:", value="arty discord", inline=False)
         embed.add_field(name=f"🚦Bot Status:", value="arty status", inline=False)
-        embed.add_field(name=f"🍪 A cookie command:", value="arty cookie",inline=False)
-        embed.add_field(name=f"💭 An Inpire Command:", value="arty inspire",inline=False)
-        embed.add_field(name=f"🌐 The GitHub page for Artys Moderation!:",value="arty github",inline=False)
-        embed.add_field(name=f"📮 Help on how to use the report command!:",value="arty report help",inline=False)
+        embed.add_field(name=f"🍪 Try to win a cookie:", value="arty cookie",inline=False)
+        embed.add_field(name=f"💭 Inspiration and Quotes:", value="arty inspire",inline=False)
+        embed.add_field(name=f"🌐 The GitHub page for Artys Moderation:",value="arty github",inline=False)
+        embed.add_field(name=f"📮 Report Command Help:",value="arty report help",inline=False)
         embed.add_field(name=f"📋 Suggest a chat topic:",value="arty topic",inline=False)
-        embed.add_field(name=f"⚙️ Bot Config Page!:",value="arty config",inline=False)
+        embed.add_field(name=f"⚙️ Bot Settings *(Server Owner Only)*:",value="arty config",inline=False)
 
         await message.channel.send(embed=embed)
         print ('Command> arty help has been executed')
@@ -288,7 +296,7 @@ async def on_message(message):
       embed.add_field(name=f"First", value="type arty r and then do the username of the user @mentioned and then the report reason. Format: arty r [@user] [reason]", inline=False)
       embed.add_field(name=f"Second:", value="Submit the report by sending the message, If your report has an @mention and a report reason and doesn't contain any foul language Arty should come back with comfirmation of the report being sent.", inline=False)
       embed.add_field(name=f"Third:", value="Hopefully the mods of the discord should be in contact with you.", inline=False)
-      embed.add_field(name=f"*Notes:*", value="*Recations must be enbled for the report to go though. The report must @mention a valid user and not a bot. The report must not contain any fould language. The report will go through even if moderation is disabled.*", inline=False)
+      embed.add_field(name=f"*Notes:*", value="*Recations must be enbled for the report to go though. The report must @mention a valid user and not a bot. The report must not contain any foul language. The report will go through even if moderation is disabled.*", inline=False)
 
       await message.channel.send(embed=embed)
     
@@ -310,29 +318,30 @@ async def on_message(message):
             await message.add_reaction(emoji)
             embed = discord.Embed(
                 title='💥 Error',
-                description='I can not report myself, If I am misbehaving please type arty discord and contact our staff there, They would love to help out!',
+                description='I can not report myself, If I am misbehaving please type `arty discord` and contact our staff there, They would love to help out!',
                 color=discord.Colour.red())
             await message.channel.send(embed=embed)
-          if len(message.clean_content) < 18:
-            emoji = '❌'
-            await message.add_reaction(emoji)
-            embed = discord.Embed(
-                title='💥 Error',
-                description='The report must contain at least 18 characters.',
-                color=discord.Colour.red())
-            await message.channel.send(embed=embed)
-          else:
-            embed = discord.Embed(
-                  title='Report!',
-                  description=
-                  report,
-                  color=discord.Colour.orange())
-            await message.channel.send(embed=embed)
-            embed = discord.Embed(
-                  description=' _Report Submitted By: %s_ ' %author,)
-            await message.channel.send(embed=embed)
-            emoji = '✅'
-            await message.add_reaction(emoji)
+            return
+        if len(message.clean_content) < 18:
+          emoji = '❌'
+          await message.add_reaction(emoji)
+          embed = discord.Embed(
+              title='💥 Error',
+              description='The report must contain at least 18 characters.',
+              color=discord.Colour.red())
+          await message.channel.send(embed=embed)
+        else:
+          embed = discord.Embed(
+            title='Report!',
+            description=
+            report,
+            color=discord.Colour.orange())
+          await message.channel.send(embed=embed)
+          embed = discord.Embed(
+            description=' _Report Submitted By: %s_ ' %author,)
+          await message.channel.send(embed=embed)
+          emoji = '✅'
+          await message.add_reaction(emoji)
 
       else:
         emoji = '❌'
