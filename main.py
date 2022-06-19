@@ -13,8 +13,6 @@ from replit import db
 from time import sleep
 from website import website
 import subprocess
-import aiohttp
-import asyncio
 
 client = discord.Client()
 
@@ -133,7 +131,7 @@ async def on_message(message):
       await message.channel.send(random.choice(topics))
 
     elif msg.startswith('arty github'):
-      await message.channel.send ('Want To Know How Our Bot Works? Here is the link to our github page! https://github.com/Topscientist/ArtysModertion')
+      await message.channel.send ('Want To Know How Our Bot Works? Here is the link to our github page! https://github.com/Topscientist/ArtysModeration')
       print ('External> GitHub has been viewed')
 
     elif msg.startswith('arty config'):
