@@ -13,6 +13,8 @@ from replit import db
 from time import sleep
 from website import website
 import subprocess
+import aiohttp
+import asyncio
 
 client = discord.Client()
 
