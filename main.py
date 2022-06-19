@@ -312,6 +312,7 @@ async def on_message(message):
               description='This report did not go through as it contained bad language. Please Try Again.',
               color=discord.Colour.red())
           await message.channel.send(embed=embed)
+          return
         else:
           if any(word in msg for word in banned_entries):
             emoji = '❌'
