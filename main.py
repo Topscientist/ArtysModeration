@@ -104,15 +104,12 @@ async def on_message(message):
         if str(abc) in db:
           return
         else:
-          author = message.author.id
-          writer = message.author.mention
-          emoji = '⚠️'
-          await message.add_reaction(emoji)
+          author = message.author.mention
           await message.channel.purge(limit=1)
           embed = discord.Embed(
               title='Hmmm',
               description=
-                'That word appears to be banned in this discord server, please watch your language.',
+                'That word appears to be banned in this discord server, please watch your language %s. ' %author,
               color=discord.Colour.orange())
           await message.channel.send(embed=embed)
           print('Automoderator> Banned word was deleted')
@@ -296,7 +293,7 @@ async def on_message(message):
       embed.add_field(name=f"First", value="type arty r and then do the username of the user @mentioned and then the report reason. Format: arty r [@user] [reason]", inline=False)
       embed.add_field(name=f"Second:", value="Submit the report by sending the message, If your report has an @mention and a report reason and doesn't contain any foul language Arty should come back with comfirmation of the report being sent.", inline=False)
       embed.add_field(name=f"Third:", value="Hopefully the mods of the discord should be in contact with you.", inline=False)
-      embed.add_field(name=f"*Notes:*", value="*Recations must be enbled for the report to go though. The report must @mention a valid user and not a bot. The report must not contain any foul language. The report will go through even if moderation is disabled.*", inline=False)
+      embed.add_field(name=f"*Notes:*", value="*Recations must be enbled for the report to go though. The report must @mention a valid user and not a bot. The report must not contain any foul language. If the report contains fould language, the report will go through even if moderation is disabled.*", inline=False)
 
       await message.channel.send(embed=embed)
     
@@ -308,21 +305,20 @@ async def on_message(message):
           emoji = '❌'
           await message.add_reaction(emoji)
           embed = discord.Embed(
-              title='💥 Error',
-              description='This report did not go through as it contained bad language. Please Try Again.',
-              color=discord.Colour.red())
+            title='💥 Error',
+            description='Reports cannot contain foul language. Please re-submit the re-sibmit the report without the foul language',
+            color=discord.Colour.red())
           await message.channel.send(embed=embed)
           return
-        else:
-          if any(word in msg for word in banned_entries):
-            emoji = '❌'
-            await message.add_reaction(emoji)
-            embed = discord.Embed(
-                title='💥 Error',
-                description='I can not report myself, If I am misbehaving please type `arty discord` and contact our staff there, They would love to help out!',
-                color=discord.Colour.red())
-            await message.channel.send(embed=embed)
-            return
+        if any(word in msg for word in banned_entries):
+          emoji = '❌'
+          await message.add_reaction(emoji)
+          embed = discord.Embed(
+            title='💥 Error',
+            description='I cannot report myself, If I am misbehaving please type `arty discord` and contact our staff there, They would love to help out!',
+            color=discord.Colour.red())
+          await message.channel.send(embed=embed)
+          return
         if len(message.clean_content) < 18:
           emoji = '❌'
           await message.add_reaction(emoji)
@@ -353,7 +349,7 @@ async def on_message(message):
               color=discord.Colour.red())
         await message.channel.send(embed=embed)
 
-    elif msg.startswith('arty test guild'):
+    elif msg.startswith('arty sudo test guild'):
       sudouser = message.author.mention
       if sudouser == '<@786182411465392128>':
         await message.channel.send('✅ No Raiders Have Been Detected, Not Yet... Note: Raiders are also blacklisted from the bot')
@@ -448,6 +444,29 @@ async def on_message(message):
           await message.channel.send(embed=embed)
           print ('Sudo Error> A User Attempted To Accses A Sudo Only Area And Failed')
           return
+
+    elif msg.startswith('arty sudo'):
+      sudouser = message.author.mention
+      if sudouser == '<@786182411465392128>':
+        embed = discord.Embed(title="Sudo Command List:", colour=discord.Colour(000000))
+
+        embed.add_field(name=f"Check For Raiders:", value="arty sudo test guild", inline=False)
+        embed.add_field(name=f"Restart The Bot:", value="arty sudo restart", inline=False)
+        embed.add_field(name=f"Shutdown The Bot:", value="arty sudo shutdown", inline=False)
+        embed.add_field(name=f"Bot Ban Someone:", value="arty sudo bot ban",inline=False)
+
+        await message.channel.send(embed=embed)
+        print ('Sudo> Sudo list has been accessed')
+      else:
+        emoji = '❌'
+        await message.add_reaction(emoji)
+        embed = discord.Embed(
+              title='💥 Error 401',
+              description='**sudo.adims.db** retured the following error; You are not a sudo-user. Please do not attempt to run this command again.',
+              color=discord.Colour.red())
+        await message.channel.send(embed=embed)
+        print ('Sudo Error> A User Attempted To Accses The Raiders List and Failed')
+        return
 
 website()
 client.run(os.getenv('TOKEN'))
