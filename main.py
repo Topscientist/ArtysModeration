@@ -107,12 +107,12 @@ async def on_message(message):
           author = message.author.mention
           await message.channel.purge(limit=1)
           embed = discord.Embed(
-              title='Hmmm',
+              title='🛡 Hmmm, AutoMod',
               description=
                 'That word appears to be banned in this discord server, please watch your language %s. ' %author,
               color=discord.Colour.orange())
           await message.channel.send(embed=embed)
-          print('Automoderator> Banned word was deleted')
+          print('Automoderator> Banned word was deleted in a discord server')
 
     if any(word in msg for word in sad_words):
       name = message.guild.name
@@ -129,20 +129,20 @@ async def on_message(message):
 
     elif msg.startswith('arty github'):
       await message.channel.send ('Want To Know How Our Bot Works? Here is the link to our github page! https://github.com/Topscientist/ArtysModeration')
-      print ('External> GitHub has been viewed')
+      print ('External> GitHub link has been sent')
 
     elif msg.startswith('arty config'):
       owner = message.guild.owner_id
       author = message.author.id
       writer = message.author.mention
       if author == owner:
-        embed = discord.Embed(title="⚙️ Bot Settings!⚙️ ", colour=discord.Colour(0))
+        embed = discord.Embed(title="⚙️ Bot Settings! ⚙️", colour=discord.Colour(0))
 
         embed.add_field(name=f"**arty cheer up true/false**", value="_Cheer up is a chat feature which looks for sad words in peoples messages then send them a message of encurouragment. [Enabled By Defult]_", inline=False)
         embed.add_field(name=f"**arty mod true/false**:", value="_ Moderation is a chat feature that identifies and removes all swear and NSWF words. [Enabled By Defult]_", inline=False)
 
         await message.channel.send(embed=embed)
-        print('Command> config executed')
+        print('Command> Configuration page for bot viewed in a discord server')
 
       elif writer == '<@786182411465392128>':
         embed = discord.Embed(title="⚙️ Bot Settings!⚙️ ", colour=discord.Colour(0))
@@ -362,7 +362,7 @@ async def on_message(message):
               description='**sudo.adims.db** retured the following error; You are not a sudo-user. Please do not attempt to run this command again.',
               color=discord.Colour.red())
         await message.channel.send(embed=embed)
-        print ('Sudo Error> A User Attempted To Accses The Raiders List and Failed')
+        print ('Sudo Error> An Unathorised User Attempted To Accses The Raiders List and Failed')
         return
 
     elif msg.startswith('arty sudo bot ban'):
@@ -377,7 +377,7 @@ async def on_message(message):
               description='**sudo.adims.db** retured the following error; You are not a sudo-user. Please do not attempt to run this command again.',
               color=discord.Colour.red())
         await message.channel.send(embed=embed)
-        print ('Sudo Error> A User Attempted To Accses A Sudo Only Area Anf Failed')
+        print ('Sudo Error> An Unathorised User Attempted To Accses A Sudo Only Area Anf Failed')
         return
     
     elif msg.startswith('arty sudo restart'):
@@ -399,6 +399,7 @@ async def on_message(message):
         emoji = '✅'
         await message.add_reaction(emoji)
         await message.channel.send('🎉 Artys Moderation has been successfully restarted!')
+        print ('Sudo> Bot has been restarted')
         subprocess.call([sys.executable, os.path.realpath(__file__)] +
         sys.argv[1:])
         
@@ -431,7 +432,7 @@ async def on_message(message):
           await message.channel.send('💤 Artys Moderation has shutdown succsesfully and all processes have been terminated at the root, excluding the website.')
           sleep (0.1)
           print ('')
-          print ('Sudo Shutdown> Artymartin3459 or another sudo user has shutdown Artys Moderation with the reason: null')
+          print ('Sudo> Artymartin3459 or another sudo user has shutdown Artys Moderation with the reason: null')
           exit()
           
         else:
@@ -456,7 +457,7 @@ async def on_message(message):
         embed.add_field(name=f"Bot Ban Someone:", value="arty sudo bot ban",inline=False)
 
         await message.channel.send(embed=embed)
-        print ('Sudo> Sudo list has been accessed')
+        print ('Sudo> Sudo commands list has been accessed')
       else:
         emoji = '❌'
         await message.add_reaction(emoji)
@@ -465,7 +466,7 @@ async def on_message(message):
               description='**sudo.adims.db** retured the following error; You are not a sudo-user. Please do not attempt to run this command again.',
               color=discord.Colour.red())
         await message.channel.send(embed=embed)
-        print ('Sudo Error> A User Attempted To Accses The Raiders List and Failed')
+        print ('Sudo Error> A User Attempted To Accses The Sudo Command List and Failed')
         return
 
 website()
