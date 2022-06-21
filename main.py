@@ -267,7 +267,7 @@ async def on_message(message):
             "**Welcome To Artys Moderation!** A bot that is fully automated with no pior setup! The idea of Artys Moderation is to help your mod bot with moderating and to help cheer people up when they are feeling down. So, you know how nower days a lot of discord servers have widley used mod bots and while this can be good it means that sometimes these bots can be a bit slow at doing their job, And thats where Artys Moderation comes into play! Because of my light code-base and good hosting I can get down on those bad words and keep your chat clean and fresh, I also have a feature called cheer up! The premise of this feature is to detect when a user is feeling sad and send them a message of encourgement! I am always adding new features and listening to feedback so if you have any suggestions then please do leave them in my discord, I would love to hear them!",
             color=discord.Colour.blue())
         await message.channel.send(embed=embed)
-        print('Command> $info has been executed')
+        print('Command> arty info has been executed')
 
     elif msg.startswith('arty status'):
         embed = discord.Embed(
