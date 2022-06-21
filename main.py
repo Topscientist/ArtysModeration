@@ -55,7 +55,7 @@ banned_words = [
     "pusse", "Pusse", "PUSSE", "pussy", "Pussy", "PUSSY",
     "scrotum", "Scrotum", "SCROTUM", "sh!t", "Sh!t", "SH!T", "shi+", "Shi+", "SHI+", "sh!+", "Sh!+", "SH1+",
     "tits", "Tits", "TITS", "boobs", "Boobs", "BOOBS", "b00bs", "B00bs", "B00BS", "testical", "Testical", "TESTICAL", "testicle", "Testicle", "titt", "Titt", "TITT", "w00se", "W00se", "W00SE",
-    "jackoff", "Jackoff", "JACKOFF," "*fuck*", "*Fuck*", "*FUCK*", "*shit*", "*Shit*", "*SHIT*",
+    "jackoff", "Jackoff", "JACKOFF," "*fuck*", "*Fuck*", "*FUCK*", "*shit*", "*Shit*", "*SHIT*", "faggot", "Faggot", "f@gg0t", "F@gg0t", "fag", "Fag", "f@G", "F@G", "f@g", "FAG",
     "@$$", "arse*", "ARSE*", "Arse*", "assrammer", "Assrammer", "ASSRAMMER", "bi7ch", "Bi7ch", "BI7CH",
     "bitch*", "Bitch*", "BITCH*", "bollock*", "Bollock*", "BOLLOCK*", "breasts", "Breasts", "BREASTS", "Cock*", "Cock*", "COCK*", "dick*", "DICK*", "ejackulate", "Ejackulate", "EJACKULATE", "foreskin", "Foreskin", "FORESKIN", "fuk*", "Fuk*", "FUK*", "h0r", "H0r", "H0R", "kanker*", "KANKER*" "Janker*", "JANKER*", "nigger*", "NIGGER*" "Niggr*", "NIGGR*", "paska*", "Paska*", "PASKA*", "perse", "Perse", "PERSE", "picka" "PICKA", "Picka", "piss*", "PISS*" "Piss*", "poontsee", "Poontsee", "POONTSEE", "porn", "Porn", "PORN", "p0rn", "P0rn", "P0RN", "pr0n", "PR0N", "Pr0n", "schaffer", "Schaffer", "SCHAFFER",
     "sh!t*", "Sh!t*", "SH!T*", "sharmuta", "Sharmuta", "SHARMUTA", "sharmute", "Sharmute", "SHARMUTE", "shipal", "Shipal", "SHIPAL", "suka", "Suka", "SUKA", "b00b*", "B00b*", "B00B*", "testicle*", "Testicle*", "TESTICLE*",
@@ -107,7 +107,7 @@ async def on_message(message):
           author = message.author.mention
           await message.channel.purge(limit=1)
           embed = discord.Embed(
-              title='Hmmm',
+              title='Hmmm, Auto Mod',
               description=
                 'That word appears to be banned in this discord server, please watch your language %s. ' %author,
               color=discord.Colour.orange())
