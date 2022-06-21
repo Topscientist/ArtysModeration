@@ -107,7 +107,7 @@ async def on_message(message):
           author = message.author.mention
           await message.channel.purge(limit=1)
           embed = discord.Embed(
-              title='Hmmm, Auto Mod',
+              title='Hmmm',
               description=
                 'That word appears to be banned in this discord server, please watch your language %s. ' %author,
               color=discord.Colour.orange())
