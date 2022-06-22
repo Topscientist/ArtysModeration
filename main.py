@@ -71,7 +71,7 @@ sad_words = [
 starter_encouragements = [
     "Cheer Up! Life will be ok", "Don't Worry, Be happy!",
     "Every little thing is going to be alright!", "Hang In There!",
-    "Whatever life throws at you, You will be stonger!", "
+    "Whatever life throws at you, You will be stonger!"
 ]
 
 banned_entries = [
