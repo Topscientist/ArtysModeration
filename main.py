@@ -31,7 +31,7 @@ report_required = [
 ]
 
 banned_words = [
-    "ahole", "Ahole", "AHOLE", "anus", "ANUS", "Anus", "ass", "ASS", "Ass", "Ass Monkey", "ASS MONLKEY", "ass monkey", "f.uck",
+    "ahole", "Ahole", "AHOLE", "anus", "ANUS", "Anus", "ass", "ASS", "Ass", "Ass Monkey", "ASS MONKEY", "ass monkey", "f.uck",
     "Assface", "assface", "ASSFACE", "assh0le", "ASSH0LE", "Assh0le", "asshole", "Asshole", "ASSHOLE", "assholes", "Assholes", "ASSHOLES", "bassterds", "Bassterds", "BASSTERDS", "bastard", "Bastard" "BASTARD", "bastards", "Bastards", "BASTARDS",
     "basterds", "Basterds", "BASTERDS", "bitch", "BITCH", "Bitch", "bitches", "BITCHES", "Bitches", "Blow Job", "blow job", "BLOW JOB", "c0ck", "C0ck", "C0CK", "c0cks", "C0CKS", "C0cks", "c0k", "C0K", "C0k", "cock", "COCK", "Cock",
     "cockhead", "COCKHEAD", "Cockhead", "cock-head", "COCK-HEAD", "Cock-head", "Cock-Head", "cocks", "COCKS", "Cocks", "CockSucker", "cocksucker", "COCKSUCKER", "Cocksucker", "cock-sucker", "COCK-SUCKER", "Cock-Sucker", "Cock-sucker", "crap", "Crap", "CRAP",
