@@ -71,21 +71,21 @@ sad_words = [
 starter_encouragements = [
     "Cheer Up! Life will be ok", "Don't Worry, Be happy!",
     "Every little thing is going to be alright!", "Hang In There!",
-    "Whatever life throws at you, You will be stonger!"
+    "Whatever life throws at you, You will be stonger!", "
 ]
 
 banned_entries = [
-  "829680222478925864", "Artys Moderation", "@829680222478925864", "artys moderation", "artys"
+  "829680222478925864", "Artys Moderation", "@829680222478925864", "artys moderation", "artys Moderation", "Artys moderation"
 ]
 
 topics = [
-  "If you go anywhere or do anything in the world, what would it be?",
-  "Is ceral a soup, Why and why not?", "What do you think will be the most popular in 3 years time?", "What's something that's very popular but in 3-5 years people will look back on and be embarressed by?", "How would you describe the human race?", "What are 5 things that should be changed about the way we live our lives right now?", "If there was one fairytale that you could move to modern times, what would it be and what would it look like?", "What things do you wish were easier to say to people?", "What makes you stong?", "If animals could talk, which one would be the rudest?", "Which object do you wish you could eliminate from existnace and why?", "If you could rule the world for one day, What would you do?", "What Can You Do That No One Else Can?", "What Is The Craziest Story You’ve Ever Heard?", "If You Could Teleport, Where Would You Go, And Why?", "What Is One Of The Things You Have On Your “Bucket” List?", "Would You Accept A One-Way Ticket To Mars?", "What Is The One Thing You Have Always Wanted To Do?", "If You Could Win Any Award What Would It Be, And Why?", "What Do You Like More, Being A Leader Or A Follower?", "What Character Traits Do You Share With Your Favorite Animal?", "If You Were On A Desert Island, But Your Needs For Food And Shelter Were Totally Taken Care Of, What One Luxury Item Would You Wish For?", "If You Were A Movie Director, What Genre Of Movie Would You Make?", "When You Go To The Zoo, What Animal Would You Most Like To Be? Why?", "Would You Make Modern Technology Disappear If You Could?", "Has Social Media Had A Positive Influence On Modern  Life, Or Negative?", "do you guys know that there was a guy that ran pc on a potato"
+  "If you go anywhere or do anything in the world, what would it be?", "What is the meaning of life", "What is life's greatest challenge?", "Who is one person that would never give you up?", "Who is one person that would never let you down?",
+  "Is ceral a soup, Why and why not?", "What do you think will be the most popular in 3 years time?", "What's something that's very popular but in 3-5 years people will look back on and be embarressed by?", "How would you describe the human race?", "What are 5 things that should be changed about the way we live our lives right now?", "If there was one fairytale that you could move to modern times, what would it be and what would it look like?", "What things do you wish were easier to say to people?", "What makes you stong?", "If animals could talk, which one would be the rudest?", "Which object do you wish you could eliminate from existnace and why?", "If you could rule the world for one day, What would you do?", "What Can You Do That No One Else Can?", "What Is The Craziest Story You’ve Ever Heard?", "If You Could Teleport, Where Would You Go, And Why?", "What Is One Of The Things You Have On Your “Bucket” List?", "Would You Accept A One-Way Ticket To Mars?", "What Is The One Thing You Have Always Wanted To Do?", "If You Could Win Any Award What Would It Be, And Why?", "What Do You Like More, Being A Leader Or A Follower?", "What Character Traits Do You Share With Your Favorite Animal?", "If You Were On A Desert Island, But Your Needs For Food And Shelter Were Totally Taken Care Of, What One Luxury Item Would You Wish For?", "If You Were A Movie Director, What Genre Of Movie Would You Make?", "When You Go To The Zoo, What Animal Would You Most Like To Be? Why?", "Would You Make Modern Technology Disappear If You Could?", "Has Social Media Had A Positive Influence On Modern  Life, Or Negative?", "do you guys know that there was a guy that ran pc on a potato?"
 ]
 
 @client.event
 async def on_ready():
-    print('We have logged in {0.user}'.format(client))
+    print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game(name=f"Never Gonna Give You Up! | Helping Out On {len(client.guilds)} servers | arty help"))
         
   
@@ -181,9 +181,11 @@ async def on_message(message):
           await message.channel.purge(limit=1)
           await message.channel.send('❌ **Failed To Run Command:** Cheer Up is already disabled in this guild')
         else:
-          await message.channel.send('🔁')
+          emoji = '🔁'
+          await message.add_reaction(emoji)
+          emoji = '✅'
+          await message.add_reaction(emoji)
           db[guild_id] = guild_id
-          await message.channel.purge(limit=1)
           await message.channel.send('✅ **Succsessfully Disabled Cheer Up In This Guild!**')
     elif msg.startswith('arty cheer up true'):
       owner = message.guild.owner_id
