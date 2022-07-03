@@ -1,6 +1,6 @@
-2##This code is copyrighted under the UK Intellectaul property house, Attempting to re-distribute or use the code for your own purposes without permision from the original owner is subject to law enforcement. 
+2##This code is copyrighted under the UK Intellectual property house. This code is liscenced under the AGPL-3.0 license and all re-dirtibutions or modifictaions of this code must be dine under the terms set out in the liscnce otherwise they are subject to copyright law enforcement.
 
-##Copyright (c) Artymartin 2021
+##Copyright (c) Artymartin/Topscientisr 2021
 
 
 import discord
@@ -11,7 +11,6 @@ import requests
 import json
 from replit import db
 from time import sleep
-from website import website
 import subprocess
 
 client = discord.Client()
@@ -471,5 +470,4 @@ async def on_message(message):
         print ('Sudo Error> A User Attempted To Accses The Sudo Command List and Failed')
         return
 
-website()
 client.run(os.getenv('TOKEN'))
