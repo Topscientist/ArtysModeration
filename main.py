@@ -4,6 +4,7 @@
 
 
 import discord
+import discord.ext.commands
 import os
 import sys
 import random
