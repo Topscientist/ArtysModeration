@@ -345,22 +345,6 @@ async def on_message(message):
               color=discord.Colour.red())
         await message.channel.send(embed=embed)
 
-    elif msg.startswith('arty sudo test guild'):
-      sudouser = message.author.mention
-      if sudouser == '<@786182411465392128>':
-        await message.channel.send('✅ No Raiders Have Been Detected, Not Yet... Note: Raiders are also blacklisted from the bot')
-        print ('Sudo> Raiders List Has Been Accsessed')
-      else:
-        emoji = '❌'
-        await message.add_reaction(emoji)
-        embed = discord.Embed(
-              title='💥 Error 401',
-              description='**sudo.adims.db** retured the following error; You are not a sudo-user. Please do not attempt to run this command again.',
-              color=discord.Colour.red())
-        await message.channel.send(embed=embed)
-        print ('Sudo Error> An Unathorised User Attempted To Accses The Raiders List and Failed')
-        return
-
     elif msg.startswith('arty sudo bot ban'):
       sudouser = message.author.mention
       if sudouser == '<@786182411465392128>':
