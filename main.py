@@ -176,15 +176,12 @@ async def on_message(message):
         emoji = '❌'
         await message.add_reaction(emoji)
       else:
+        emoji = '🔁'
+        await message.add_reaction(emoji)
         guild_id = message.guild.name
         if guild_id in db:
-          await message.channel.purge(limit=1)
           await message.channel.send('❌ **Failed To Run Command:** Cheer Up is already disabled in this guild')
         else:
-          emoji = '🔁'
-          await message.add_reaction(emoji)
-          emoji = '✅'
-          await message.add_reaction(emoji)
           db[guild_id] = guild_id
           await message.channel.send('✅ **Succsessfully Disabled Cheer Up In This Guild!**')
     elif msg.startswith('arty cheer up true'):
@@ -195,13 +192,12 @@ async def on_message(message):
         await message.add_reaction(emoji)
       else:
         guild_id = message.guild.name
-        await message.channel.send('🔁')
+        emoji = '🔁'
+        await message.add_reaction(emoji)
         if guild_id in db:
           del db[guild_id]
-          await message.channel.purge(limit=1)
           await message.channel.send('✅ **Succsessfully Enabled Cheer Up In This Guild!**')
         else:
-          await message.channel.purge(limit=1)
           await message.channel.send('❌ **Failed To Run Command:** Cheer Up is alreday enabled in this guild')
 
     elif msg.startswith('arty mod false'):
@@ -211,14 +207,13 @@ async def on_message(message):
         emoji = '❌'
         await message.add_reaction(emoji)
       else:
-        await message.channel.send('🔁')
+        emoji = '🔁'
+        await message.add_reaction(emoji)
         name = message.guild.id
         if str(name) in db:
-          await message.channel.purge(limit=1)
           await message.channel.send('❌ **Failed To Run Command:** Moderation is already disabled in this guild')
         else:
           db[name] = "True"
-          await message.channel.purge(limit=1)
           await message.channel.send('✅ **Succsessfully Disabled Moderation In This Guild!**')
     elif msg.startswith('arty mod true'):
       owner = message.guild.owner_id
@@ -228,18 +223,17 @@ async def on_message(message):
         await message.add_reaction(emoji)
       else:
         name = message.guild.id
-        await message.channel.send('🔁')
+        emoji = '🔁'
+        await message.add_reaction(emoji)
         if str(name) in db:
           del db[str(name)]
-          await message.channel.purge(limit=1)
           await message.channel.send('✅ **Succsessfully Enabled Moderation In This Guild!**')
         else:
-          await message.channel.purge(limit=1)
           await message.channel.send('❌ **Failed To Run Command:** Moderation is alreday enabled in this guild')
 
     elif msg.startswith('arty cookie'):
         await message.channel.send(random.choice(cookie_list))
-        print('Command> $cookie has bee executed')
+        print('Command> arty cookie has bee executed')
 
     elif msg.startswith('arty help'):
       name = message.guild.name
