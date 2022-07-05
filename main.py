@@ -234,8 +234,16 @@ async def on_message(message):
           await message.channel.send('❌ **Failed To Run Command:** Moderation is alreday enabled in this guild')
 
     elif msg.startswith('arty cookie'):
-        await message.channel.send(random.choice(cookie_list))
-        print('Command> arty cookie has bee executed')
+      await message.channel.send(random.choice(cookie_list))
+      print ('Command> arty cookie has been executed')
+
+    elif msg.startswith('arty labs'):
+      embed = discord.Embed(title="🤖 Arty Labs!", colour=discord.Colour(0xe91e63))
+
+      embed.add_field(name=f"Hey There!", value="My names Arty and I am a discord.py bot developer.", inline=False)
+      embed.add_field(name=f"I have recently partnered with a friend to make a bot lab or a family of bots!", value=" This lab or 'family' will include Artys Moderation, Artys Raid Protection and the 0x102 Discord bot. This lab will contain a lot of different features within the bots and moderation wise will contain all of the same intelligence and is planned to be one of the most intelligent discord moderation bot systems to date! This lab will launch soon so watch this space...", inline=False)
+      
+      await message.channel.send(embed=embed)
 
     elif msg.startswith('arty help'):
       name = message.guild.name
@@ -253,6 +261,7 @@ async def on_message(message):
         embed.add_field(name=f"🌐 The GitHub page for Artys Moderation:",value="arty github",inline=False)
         embed.add_field(name=f"📮 Report Command Help:",value="arty report help",inline=False)
         embed.add_field(name=f"📋 Suggest a chat topic:",value="arty topic",inline=False)
+        embed.add_field(name=f"🤖 Learn about our bot lab:",value="arty labs",inline=False)
         embed.add_field(name=f"⚙️ Bot Settings *(Server Owner Only)*:",value="arty config",inline=False)
 
         await message.channel.send(embed=embed)
@@ -433,7 +442,6 @@ async def on_message(message):
       if sudouser == '<@786182411465392128>':
         embed = discord.Embed(title="Sudo Command List:", colour=discord.Colour(000000))
 
-        embed.add_field(name=f"Check For Raiders:", value="arty sudo test guild", inline=False)
         embed.add_field(name=f"Restart The Bot:", value="arty sudo restart", inline=False)
         embed.add_field(name=f"Shutdown The Bot:", value="arty sudo shutdown", inline=False)
         embed.add_field(name=f"Bot Ban Someone:", value="arty sudo bot ban",inline=False)
