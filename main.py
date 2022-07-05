@@ -94,6 +94,8 @@ async def on_message(message):
     if message.author == client.user:
         return
       
+    if message.author.bot: return
+      
     msg = message.content
    
     if any(word in msg for word in banned_words):
