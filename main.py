@@ -1,6 +1,6 @@
 2##This code is copyrighted under the UK Intellectual property house. This code is liscenced under the AGPL-3.0 license and all re-dirtibutions or modifictaions of this code must be dine under the terms set out in the liscnce otherwise they are subject to copyright law enforcement.
 
-##Copyright (c) Artymartin/Topscientisr 2021
+##Copyright (c) Artymartin/Topscientist 2021
 
 
 import discord
