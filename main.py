@@ -550,8 +550,8 @@ async def on_message(message):
             await message.channel.send(embed=embed)
 
     elif msg.startswith('arty sudo bot ban'):
-        sudouser = message.author.mention
-        if sudouser == '<@786182411465392128>':
+        sudouser = message.author.id
+        if sudouser == int("786182411465392128"):
             await message.channel.send(
                 '✅ Succsessfully Un-Blacklisted this discord.')
         else:
@@ -569,8 +569,8 @@ async def on_message(message):
             return
 
     elif msg.startswith('arty sudo restart'):
-        sudo = message.author.mention
-        if sudo == "<@786182411465392128>":
+        sudo = message.author.id
+        if sudo == int("786182411465392128"):
             emoji = '🔄'
             await message.add_reaction(emoji)
             embed = discord.Embed(
@@ -609,8 +609,8 @@ async def on_message(message):
             )
             return
     elif msg.startswith('arty sudo shutdown'):
-        sudo = message.author.mention
-        if sudo == "<@786182411465392128>":
+        sudo = message.author.id
+        if sudo == int("786182411465392128"):
             emoji = '🔄'
             await message.add_reaction(emoji)
             embed = discord.Embed(
@@ -650,8 +650,8 @@ async def on_message(message):
             return
 
     elif msg.startswith('arty sudo'):
-        sudouser = message.author.mention
-        if sudouser == '<@786182411465392128>':
+      sudouser = message.author.id
+      if sudouser == int("786182411465392128"):
             embed = discord.Embed(title="Sudo Command List:",
                                   colour=discord.Colour(000000))
 
@@ -667,7 +667,7 @@ async def on_message(message):
 
             await message.channel.send(embed=embed)
             print('Sudo> Sudo commands list has been accessed')
-        else:
+      else:
             emoji = '❌'
             await message.add_reaction(emoji)
             embed = discord.Embed(
