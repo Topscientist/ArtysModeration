@@ -13,8 +13,8 @@ from replit import db
 from time import sleep
 import subprocess
 
-client = discord.Client()
-
+intents = discord.Intents.default()
+client = discord.Client(intents=intents)
 
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
