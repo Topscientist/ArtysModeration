@@ -7,7 +7,7 @@ authors = ["Your Name <you@example.com>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 discord = "^2.0.0"
-replit = "^3.2.4"
+replit = "^3.2.5"
 Flask = "^2.2.2"
 website = "^1.1"
 
