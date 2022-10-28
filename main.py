@@ -211,14 +211,14 @@ async def on_message(message):
                 return
             else:
                 author = message.author.mention
-                await message.channel.purge(limit=1)
+                await message.delete()
                 embed = discord.Embed(
                     title='🛡 Hmmm, AutoMod',
                     description=
                     'That word appears to be banned in this discord server, please watch your language %s. '
                     % author,
                     color=discord.Colour.orange())
-                await message.channel.send(embed=embed)
+                await message.channel.send(embed=embed, delete_after = 10)
                 print(
                     'Automoderator> Banned word was deleted in a discord server'
                 )
