@@ -1,6 +1,4 @@
-2  ##This code is copyrighted under the UK Intellectual property house. This code is liscenced under the AGPL-3.0 license and all re-dirtibutions or modifictaions of this code must be dine under the terms set out in the liscnce otherwise they are subject to copyright law enforcement.
-
-##Copyright (c) Artymartin/Topscientist 2021
+##This program (Artys Moderation) is liscenced under the GNU Affero General Public License v3.0 and all re-distributions or modifictaions of this code must be done under the terms set out in the liscence otherwise they are in violation of the liscence agreement and are subject to copyright law enforcement.
 
 import discord
 import discord.ext.commands
@@ -12,6 +10,9 @@ import json
 from replit import db
 from time import sleep
 import subprocess
+
+# Import the uptime check
+from uptime import uptime_check
 
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
@@ -185,6 +186,7 @@ topics = [
 
 @client.event
 async def on_ready():
+    uptime_check()
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game(
         name=
@@ -626,7 +628,7 @@ async def on_message(message):
             emoji = '✅'
             await message.add_reaction(emoji)
             await message.channel.send(
-                '💤 Artys Moderation has shutdown succsesfully and all processes have been terminated at the root, excluding the website.'
+                '💤 Artys Moderation has shutdown sucsessfully and all processes have been terminated at the root, excluding the website.'
             )
             sleep(0.1)
             print('')
@@ -680,6 +682,5 @@ async def on_message(message):
                 'Sudo Error> A User Attempted To Accses The Sudo Command List and Failed'
             )
             return
-
-
+        
 client.run(os.getenv('TOKEN'))
