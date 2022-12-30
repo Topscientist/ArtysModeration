@@ -15,6 +15,7 @@ import subprocess
 from uptime import uptime_check
 
 intents = discord.Intents.default()
+intents.message_content = True
 client = discord.Client(intents=intents)
 
 def get_quote():
@@ -186,7 +187,6 @@ topics = [
 
 @client.event
 async def on_ready():
-    uptime_check()
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game(
         name=
@@ -294,13 +294,7 @@ async def on_message(message):
                 color=discord.Colour.red())
             await message.channel.send(embed=embed)
 
-    elif msg.startswith('<@829680222478925864>'):
-        embed = discord.Embed(
-            title='👋 Hello There!',
-            description=
-            'My name is Artys Moderation, To get a list of my commands type `arty help`',
-            color=discord.Colour.green())
-        await message.channel.send(embed=embed)
+    
 
     elif msg.startswith('arty cheer up false'):
         owner = message.guild.owner_id
@@ -398,49 +392,42 @@ async def on_message(message):
         await message.channel.send(embed=embed)
 
     elif msg.startswith('arty help'):
-        name = message.guild.name
-        if name == 'EXAMPLE-HERE123':
-            await message.channel.send(
-                '❌ Failed: **This Discord Server Has Been Blacklisted.** There are many reasons for a blacklist, Please run arty discord to join the discord to appeal ypur balcklist. The bot will not work in this discord until your blacklist is removed. Kicking the bot and then re-adding will not have an effect.'
-            )
-            return
-        else:
-            embed = discord.Embed(title="Command List:",
+      embed = discord.Embed(title="Command List:",
                                   colour=discord.Colour(0x9b59b6))
 
-            embed.add_field(name=f"ℹ️ Bot Info:",
+      embed.add_field(name=f"ℹ️ Bot Info:",
                             value="arty info",
                             inline=False)
-            embed.add_field(name=f"✉️ Join Our Discord:",
+      embed.add_field(name=f"✉️ Join Our Discord:",
                             value="arty discord",
                             inline=False)
-            embed.add_field(name=f"🚦Bot Status:",
+      embed.add_field(name=f"🚦Bot Status:",
                             value="arty status",
                             inline=False)
-            embed.add_field(name=f"🍪 Try to win a cookie:",
+      embed.add_field(name=f"🍪 Try to win a cookie:",
                             value="arty cookie",
                             inline=False)
-            embed.add_field(name=f"💭 Inspiration and Quotes:",
+      embed.add_field(name=f"💭 Inspiration and Quotes:",
                             value="arty inspire",
                             inline=False)
-            embed.add_field(name=f"🌐 The GitHub page for Artys Moderation:",
+      embed.add_field(name=f"🌐 The GitHub page for Artys Moderation:",
                             value="arty github",
                             inline=False)
-            embed.add_field(name=f"📮 Report Command Help:",
+      embed.add_field(name=f"📮 Report Command Help:",
                             value="arty report help",
                             inline=False)
-            embed.add_field(name=f"📋 Suggest a chat topic:",
+      embed.add_field(name=f"📋 Suggest a chat topic:",
                             value="arty topic",
                             inline=False)
-            embed.add_field(name=f"🤖 Learn about our bot lab:",
+      embed.add_field(name=f"🤖 Learn about our bot lab:",
                             value="arty labs",
                             inline=False)
-            embed.add_field(name=f"⚙️ Bot Settings *(Server Owner Only)*:",
+      embed.add_field(name=f"⚙️ Bot Settings *(Server Owner Only)*:",
                             value="arty config",
                             inline=False)
 
-            await message.channel.send(embed=embed)
-            print('Command> arty help has been executed')
+      await message.channel.send(embed=embed)
+      print('Command> arty help has been executed')
 
     elif msg.startswith('arty info'):
         embed = discord.Embed(
@@ -571,8 +558,8 @@ async def on_message(message):
             return
 
     elif msg.startswith('arty sudo restart'):
-        sudo = message.author.id
-        if sudo == int("786182411465392128"):
+      sudo = message.author.id
+      if sudo == int("786182411465392128"):
             emoji = '🔄'
             await message.add_reaction(emoji)
             embed = discord.Embed(
@@ -597,7 +584,7 @@ async def on_message(message):
             subprocess.call(
                 [sys.executable, os.path.realpath(__file__)] + sys.argv[1:])
 
-        else:
+      else:
             emoji = '❌'
             await message.add_reaction(emoji)
             embed = discord.Embed(
@@ -682,5 +669,13 @@ async def on_message(message):
                 'Sudo Error> A User Attempted To Accses The Sudo Command List and Failed'
             )
             return
-        
+    elif msg.startswith('<@829680222478925864>'):
+        embed = discord.Embed(
+            title='👋 Hello There!',
+            description=
+            'My name is Artys Moderation, To get a list of my commands type `arty help`',
+            color=discord.Colour.green())
+        await message.channel.send(embed=embed)
+
 client.run(os.getenv('TOKEN'))
+uptime_check()
