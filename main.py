@@ -677,5 +677,5 @@ async def on_message(message):
             color=discord.Colour.green())
         await message.channel.send(embed=embed)
 
-client.run(os.getenv('TOKEN'))
 uptime_check()
+client.run(os.getenv('TOKEN'))
