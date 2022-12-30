@@ -14,6 +14,7 @@ import subprocess
 # Import the uptime check
 from uptime import uptime_check
 
+# Set the intents
 intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
