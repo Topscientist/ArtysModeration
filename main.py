@@ -191,7 +191,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game(
         name=
-        f"Never Gonna Give You Up! | Helping Out On {len(client.guilds)} servers | arty help"
+        f"Never Gonna Give You Up! | Helping Out In {len(client.guilds)} Servers | arty help"
     ))
 
 
