@@ -191,7 +191,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game(
         name=
-        f"Happy New Year Everyone! | Helping Out In {len(client.guilds)} Servers | arty help"
+        f"Helping Out In {len(client.guilds)} Servers | arty help"
     ))
 
 
@@ -443,7 +443,7 @@ async def on_message(message):
         embed = discord.Embed(
             title='Bot Status',
             description=
-            '**Bot Online** Bot is online in all discord servers. To get more info or real-time updates please join pur disvord or check our status page at the following link; https://stats.uptimerobot.com/rVzDJuAZkN/787787175',
+            '**Bot Online** Bot is online in all discord servers. To get more info or real-time updates please join our discord and head to the bot status channel!',
             color=discord.Colour.green())
         await message.channel.send(embed=embed)
         print('Command> $status has been executed')
@@ -496,7 +496,7 @@ async def on_message(message):
                 embed = discord.Embed(
                     title='💥 Error',
                     description=
-                    'Reports cannot contain foul language. Please re-submit the re-sibmit the report without the foul language',
+                    'Reports cannot contain foul language. Please re-submit the report without the foul language',
                     color=discord.Colour.red())
                 await message.channel.send(embed=embed)
                 return
@@ -538,25 +538,6 @@ async def on_message(message):
                 description='You need to @mention a valid user in your report',
                 color=discord.Colour.red())
             await message.channel.send(embed=embed)
-
-    elif msg.startswith('arty sudo bot ban'):
-        sudouser = message.author.id
-        if sudouser == int("786182411465392128"):
-            await message.channel.send(
-                '✅ Succsessfully Un-Blacklisted this discord.')
-        else:
-            emoji = '❌'
-            await message.add_reaction(emoji)
-            embed = discord.Embed(
-                title='💥 Error 401',
-                description=
-                '**sudo.adims.db** retured the following error; You are not a sudo-user. Please do not attempt to run this command again.',
-                color=discord.Colour.red())
-            await message.channel.send(embed=embed)
-            print(
-                'Sudo Error> An Unathorised User Attempted To Accses A Sudo Only Area Anf Failed'
-            )
-            return
 
     elif msg.startswith('arty sudo restart'):
       sudo = message.author.id
