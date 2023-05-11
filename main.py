@@ -19,6 +19,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 client = discord.Client(intents=intents)
 
+
 def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
@@ -190,9 +191,7 @@ topics = [
 async def on_ready():
     print('We have logged in as {0.user}'.format(client))
     await client.change_presence(activity=discord.Game(
-        name=
-        f"Helping Out In {len(client.guilds)} Servers | arty help"
-    ))
+        name=f"Helping Out In {len(client.guilds)} Servers | arty help"))
 
 
 @client.event
@@ -221,7 +220,7 @@ async def on_message(message):
                     'That word appears to be banned in this discord server, please watch your language %s. '
                     % author,
                     color=discord.Colour.orange())
-                await message.channel.send(embed=embed, delete_after = 10)
+                await message.channel.send(embed=embed, delete_after=10)
                 print(
                     'Automoderator> Banned word was deleted in a discord server'
                 )
@@ -294,8 +293,6 @@ async def on_message(message):
                 description='Only the guild owner can change this!',
                 color=discord.Colour.red())
             await message.channel.send(embed=embed)
-
-    
 
     elif msg.startswith('arty cheer up false'):
         owner = message.guild.owner_id
@@ -393,42 +390,40 @@ async def on_message(message):
         await message.channel.send(embed=embed)
 
     elif msg.startswith('arty help'):
-      embed = discord.Embed(title="Command List:",
-                                  colour=discord.Colour(0x9b59b6))
+        embed = discord.Embed(title="Command List:",
+                              colour=discord.Colour(0x9b59b6))
 
-      embed.add_field(name=f"ℹ️ Bot Info:",
-                            value="arty info",
-                            inline=False)
-      embed.add_field(name=f"✉️ Join Our Discord:",
-                            value="arty discord",
-                            inline=False)
-      embed.add_field(name=f"🚦Bot Status:",
-                            value="arty status",
-                            inline=False)
-      embed.add_field(name=f"🍪 Try to win a cookie:",
-                            value="arty cookie",
-                            inline=False)
-      embed.add_field(name=f"💭 Inspiration and Quotes:",
-                            value="arty inspire",
-                            inline=False)
-      embed.add_field(name=f"🌐 The GitHub page for Artys Moderation:",
-                            value="arty github",
-                            inline=False)
-      embed.add_field(name=f"📮 Report Command Help:",
-                            value="arty report help",
-                            inline=False)
-      embed.add_field(name=f"📋 Suggest a chat topic:",
-                            value="arty topic",
-                            inline=False)
-      embed.add_field(name=f"🤖 Learn about our bot lab:",
-                            value="arty labs",
-                            inline=False)
-      embed.add_field(name=f"⚙️ Bot Settings *(Server Owner Only)*:",
-                            value="arty config",
-                            inline=False)
+        embed.add_field(name=f"ℹ️ Bot Info:", value="arty info", inline=False)
+        embed.add_field(name=f"✉️ Join Our Discord:",
+                        value="arty discord",
+                        inline=False)
+        embed.add_field(name=f"🚦Bot Status:",
+                        value="arty status",
+                        inline=False)
+        embed.add_field(name=f"🍪 Try to win a cookie:",
+                        value="arty cookie",
+                        inline=False)
+        embed.add_field(name=f"💭 Inspiration and Quotes:",
+                        value="arty inspire",
+                        inline=False)
+        embed.add_field(name=f"🌐 The GitHub page for Artys Moderation:",
+                        value="arty github",
+                        inline=False)
+        embed.add_field(name=f"📮 Report Command Help:",
+                        value="arty report help",
+                        inline=False)
+        embed.add_field(name=f"📋 Suggest a chat topic:",
+                        value="arty topic",
+                        inline=False)
+        embed.add_field(name=f"🤖 Learn about our bot lab:",
+                        value="arty labs",
+                        inline=False)
+        embed.add_field(name=f"⚙️ Bot Settings *(Server Owner Only)*:",
+                        value="arty config",
+                        inline=False)
 
-      await message.channel.send(embed=embed)
-      print('Command> arty help has been executed')
+        await message.channel.send(embed=embed)
+        print('Command> arty help has been executed')
 
     elif msg.startswith('arty info'):
         embed = discord.Embed(
@@ -540,8 +535,8 @@ async def on_message(message):
             await message.channel.send(embed=embed)
 
     elif msg.startswith('arty sudo restart'):
-      sudo = message.author.id
-      if sudo == int("786182411465392128"):
+        sudo = message.author.id
+        if sudo == int("786182411465392128"):
             emoji = '🔄'
             await message.add_reaction(emoji)
             embed = discord.Embed(
@@ -566,7 +561,7 @@ async def on_message(message):
             subprocess.call(
                 [sys.executable, os.path.realpath(__file__)] + sys.argv[1:])
 
-      else:
+        else:
             emoji = '❌'
             await message.add_reaction(emoji)
             embed = discord.Embed(
@@ -621,8 +616,8 @@ async def on_message(message):
             return
 
     elif msg.startswith('arty sudo'):
-      sudouser = message.author.id
-      if sudouser == int("786182411465392128"):
+        sudouser = message.author.id
+        if sudouser == int("786182411465392128"):
             embed = discord.Embed(title="Sudo Command List:",
                                   colour=discord.Colour(000000))
 
@@ -638,7 +633,7 @@ async def on_message(message):
 
             await message.channel.send(embed=embed)
             print('Sudo> Sudo commands list has been accessed')
-      else:
+        else:
             emoji = '❌'
             await message.add_reaction(emoji)
             embed = discord.Embed(
