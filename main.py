@@ -179,11 +179,13 @@ topics = [
     "What Do You Like More, Being A Leader Or A Follower?",
     "What Character Traits Do You Share With Your Favorite Animal?",
     "If You Were On A Desert Island, But Your Needs For Food And Shelter Were Totally Taken Care Of, What One Luxury Item Would You Wish For?",
-    "If You Were A Movie Director, What Genre Of Movie Would You Make?",
+    "If You Were A Movie Director, What Genre Of Movie Would You Make and/or What Movie Would You Make and Why?",
     "When You Go To The Zoo, What Animal Would You Most Like To Be? Why?",
     "Would You Make Modern Technology Disappear If You Could?",
     "Has Social Media Had A Positive Influence On Modern  Life, Or Negative?",
-    "do you guys know that there was a guy that ran pc on a potato?"
+    "do you guys know that there was a guy that ran pc on a potato?",
+    "In your opinion, how should the world be run?",
+    "If you created an AI, based off of your own work and trained that AI only on your own work, if you got that AI to make something, is it still your own work? Why/why not?"
 ]
 
 
@@ -237,7 +239,11 @@ async def on_message(message):
                     random.choice(starter_encouragements))
 
     elif msg.startswith('arty topic'):
-        await message.channel.send(random.choice(topics))
+        embed = discord.Embed(
+            title='🤔 Chat topic',
+            description=random.choice(topics),
+            color=discord.Colour.cyan())
+        await message.channel.send(embed=embed)
 
     elif msg.startswith('arty github'):
         await message.channel.send(
@@ -312,6 +318,7 @@ async def on_message(message):
                 db[guild_id] = guild_id
                 await message.channel.send(
                     '✅ **Succsessfully Disabled Cheer Up In This Guild!**')
+                
     elif msg.startswith('arty cheer up true'):
         owner = message.guild.owner_id
         author = message.author.id
@@ -349,6 +356,7 @@ async def on_message(message):
                 db[name] = "True"
                 await message.channel.send(
                     '✅ **Succsessfully Disabled Moderation In This Guild!**')
+                
     elif msg.startswith('arty mod true'):
         owner = message.guild.owner_id
         author = message.author.id
@@ -371,23 +379,6 @@ async def on_message(message):
     elif msg.startswith('arty cookie'):
         await message.channel.send(random.choice(cookie_list))
         print('Command> arty cookie has been executed')
-
-    elif msg.startswith('arty labs'):
-        embed = discord.Embed(title="🤖 Arty Labs!",
-                              colour=discord.Colour(0xe91e63))
-
-        embed.add_field(
-            name=f"Hey There!",
-            value="My names Arty and I am a discord.py bot developer.",
-            inline=False)
-        embed.add_field(
-            name=
-            f"I have recently partnered with a friend to make a bot lab or a family of bots!",
-            value=
-            " This lab or 'family' will include Artys Moderation, Artys Raid Protection and the 0x102 Discord bot. This lab will contain a lot of different features within the bots and moderation wise will contain all of the same intelligence and is planned to be one of the most intelligent discord moderation bot systems to date! This lab will launch soon so watch this space...",
-            inline=False)
-
-        await message.channel.send(embed=embed)
 
     elif msg.startswith('arty help'):
         embed = discord.Embed(title="Command List:",
@@ -414,9 +405,6 @@ async def on_message(message):
                         inline=False)
         embed.add_field(name=f"📋 Suggest a chat topic:",
                         value="arty topic",
-                        inline=False)
-        embed.add_field(name=f"🤖 Learn about our bot lab:",
-                        value="arty labs",
                         inline=False)
         embed.add_field(name=f"⚙️ Bot Settings *(Server Owner Only)*:",
                         value="arty config",
@@ -574,6 +562,7 @@ async def on_message(message):
                 'Sudo Error> A User Attempted To Accses A Sudo Only Area And Failed'
             )
             return
+        
     elif msg.startswith('arty sudo shutdown'):
         sudo = message.author.id
         if sudo == int("786182411465392128"):
@@ -597,7 +586,7 @@ async def on_message(message):
             sleep(0.1)
             print('')
             print(
-                'Sudo> Artymartin3459 or another sudo user has shutdown Artys Moderation with the reason: null'
+                'Sudo> Artymartin3459 or another sudo user has shutdown Artys Moderation.'
             )
             exit()
 
@@ -607,7 +596,7 @@ async def on_message(message):
             embed = discord.Embed(
                 title='💥 Error 401',
                 description=
-                '**sudo.adims.db** retured the following error; You are not a sudo-user. Please do not attempt to run this command again.',
+                'You are not a sudo-user. Please do not attempt to run this command again.',
                 color=discord.Colour.red())
             await message.channel.send(embed=embed)
             print(
