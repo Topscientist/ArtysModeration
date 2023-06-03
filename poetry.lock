@@ -854,14 +854,14 @@ docs = ["Sphinx[docs] (>=4.3.2,<6.0.0)", "sphinx-autodoc-typehints[docs] (==1.21
 
 [[package]]
 name = "replit"
-version = "3.2.5"
+version = "3.3.0"
 description = "A library for interacting with features of repl.it"
 category = "main"
 optional = false
 python-versions = ">=3.8,<4.0"
 files = [
-    {file = "replit-3.2.5-py3-none-any.whl", hash = "sha256:c8ca833203e5e56b53d594523fec204bc31cb1ae4b9b703778e4b8edda292313"},
-    {file = "replit-3.2.5.tar.gz", hash = "sha256:4364879b8b8271cc2c07e0e32d33b272ed72687cc6d62a53d2378012a81ad63e"},
+    {file = "replit-3.3.0-py3-none-any.whl", hash = "sha256:11aff40fe0fec0fa48ccff015ed72b39f3f53ea18c9c6a113ed1bbf12d123ccf"},
+    {file = "replit-3.3.0.tar.gz", hash = "sha256:1c5c12966c70cdcbdbcd1819178b0f10e8b864dcb1e872ea337ecc82caf8f560"},
 ]
 
 [package.dependencies]
@@ -1046,4 +1046,4 @@ testing = ["flake8 (<5)", "func-timeout", "jaraco.functools", "jaraco.itertools"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "f3ba57a93a3ecb6214ed5309f605698148d8c963c483967ee9b8af6b3a26fe59"
+content-hash = "69d07d892010db9fb1030d91f26e0fa74b019d3effd4b83c220ce19e65b69d63"
