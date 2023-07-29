@@ -185,7 +185,9 @@ topics = [
     "Has Social Media Had A Positive Influence On Modern  Life, Or Negative?",
     "do you guys know that there was a guy that ran pc on a potato?",
     "In your opinion, how should the world be run?",
-    "If you created an AI, based off of your own work and trained that AI only on your own work, if you got that AI to make something, is it still your own work? Why/why not?"
+    "If you created an AI, based off of your own work and trained that AI only on your own work, if you got that AI to make something, is it still your own work? Why/why not?",
+  "Is humanity doomed? Why or why not? How would you fix it?",
+  "Do you care about your personal data being taken and sold even if it comes at real world costs (E.G: Identity Fraud and Bank Accounts being hacked)? Why/Why not?"
 ]
 
 
@@ -217,7 +219,7 @@ async def on_message(message):
                 author = message.author.mention
                 await message.delete()
                 embed = discord.Embed(
-                    title='🛡 Hmmm, AutoMod',
+                    title='🛡 AutoMod',
                     description=
                     'That word appears to be banned in this discord server, please watch your language %s. '
                     % author,

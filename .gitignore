@@ -2,3 +2,5 @@ __pycache__
 *.lock
 *.pyc
 *.toml
+*.json
+__replit_disk_meta.json
