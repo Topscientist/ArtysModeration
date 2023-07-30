@@ -33,11 +33,6 @@ discordnames = ("a", "A", "b", "B", "c", "C", "d", "D", "e", "E", "f", "F",
                 "s", "S", "t", "T", "u", "U", "v", "V", "w", "W", "x", "X",
                 "y", "Y", "z", "z")
 
-whitelist = ("competition", "Competition", "passed", "Passed", "glass",
-             "Glass", "GLASS", "Assign", "assign", "ASSIGN", "passport",
-             "Passport", "passive", "Passive", "pass", "Pass", "Mass", "mass",
-             "Assets", "assets", "Wassup", "wassup")
-
 report_required = ["@"]
 
 banned_words = [
@@ -197,7 +192,6 @@ async def on_ready():
     await client.change_presence(activity=discord.Game(
         name=f"Helping Out In {len(client.guilds)} Servers | arty help"))
 
-
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -208,26 +202,22 @@ async def on_message(message):
 
     msg = message.content
 
-    if any(word in msg for word in banned_words):
-        if any(word in msg for word in whitelist):
-            return
+    # AutoMod
+    check = msg.split()
+    for word in check:
+      if any(word in check for word in banned_words):
+        abc = message.guild.id
+        if str(abc) in db:
+          return
         else:
-            abc = message.guild.id
-            if str(abc) in db:
-                return
-            else:
-                author = message.author.mention
-                await message.delete()
-                embed = discord.Embed(
-                    title='🛡 AutoMod',
-                    description=
-                    'That word appears to be banned in this discord server, please watch your language %s. '
-                    % author,
-                    color=discord.Colour.orange())
-                await message.channel.send(embed=embed, delete_after=6)
-                print(
-                    'Automoderator> Banned word was deleted in a discord server'
-                )
+          author = message.author.mention
+          await message.delete()
+          embed = discord.Embed(
+            title='**🛡 AutoMod**',
+            description='That word appears to be banned in this discord server, please watch your language %s. ' % author,
+          color=discord.Colour.orange())
+          await message.channel.send(embed=embed, delete_after=6)
+          print('Automoderator> Automod took action in a server')
 
     if any(word in msg for word in sad_words):
         name = message.guild.name
@@ -279,7 +269,7 @@ async def on_message(message):
             )
 
         elif writer == '<@786182411465392128>':
-            embed = discord.Embed(title="⚙️ Bot Settings!⚙️ ",
+            embed = discord.Embed(title="⚙️ Bot Settings!⚙️",
                                   colour=discord.Colour(0))
 
             embed.add_field(
