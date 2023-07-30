@@ -242,10 +242,11 @@ async def on_message(message):
 
     elif msg.startswith('arty topic'):
         embed = discord.Embed(
-            title='🤔 Chat topic',
+            title='**🤔 Chat topic**',
             description=random.choice(topics),
-            color=discord.Colour.cyan())
+            color=discord.Colour.random())
         await message.channel.send(embed=embed)
+        print("Topics> Someone requested a chat topic!")
 
     elif msg.startswith('arty github'):
         await message.channel.send(
