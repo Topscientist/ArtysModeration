@@ -224,7 +224,7 @@ async def on_message(message):
                     'That word appears to be banned in this discord server, please watch your language %s. '
                     % author,
                     color=discord.Colour.orange())
-                await message.channel.send(embed=embed, delete_after=10)
+                await message.channel.send(embed=embed, delete_after=6)
                 print(
                     'Automoderator> Banned word was deleted in a discord server'
                 )
