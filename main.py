@@ -1,4 +1,4 @@
-##This program (Artys Moderation) is liscenced under the GNU Affero General Public License v3.0 and all re-distributions or modifictaions of this code must be done under the terms set out in the liscence otherwise they are in violation of the liscence agreement and are subject to copyright law enforcement.
+##This program (Artys Moderation) is liscenced under the MIT License and all re-distributions or modifictaions of this code must be done under the terms set out in the liscence otherwise they are in violation of the liscence agreement and are subject to copyright law enforcement.
 
 import discord
 import discord.ext.commands
