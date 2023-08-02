@@ -4,3 +4,5 @@ __pycache__
 *.toml
 *.json
 __replit_disk_meta.json
+replit.nix
+.replit
