@@ -296,7 +296,7 @@ async def on_message(message):
     elif msg.startswith('arty cheer up false'):
         owner = message.guild.owner_id
         author = message.author.id
-        if author != owner:
+        if author != owner and author != 786182411465392128:
             emoji = '❌'
             await message.add_reaction(emoji)
         else:
@@ -315,7 +315,7 @@ async def on_message(message):
     elif msg.startswith('arty cheer up true'):
         owner = message.guild.owner_id
         author = message.author.id
-        if author != owner:
+        if author != owner and author != 786182411465392128:
             emoji = '❌'
             await message.add_reaction(emoji)
         else:
@@ -334,7 +334,7 @@ async def on_message(message):
     elif msg.startswith('arty mod false'):
         owner = message.guild.owner_id
         author = message.author.id
-        if author != owner:
+        if author != owner and author != 786182411465392128:
             emoji = '❌'
             await message.add_reaction(emoji)
         else:
@@ -353,7 +353,7 @@ async def on_message(message):
     elif msg.startswith('arty mod true'):
         owner = message.guild.owner_id
         author = message.author.id
-        if author != owner:
+        if author != owner and author != 786182411465392128:
             emoji = '❌'
             await message.add_reaction(emoji)
         else:
