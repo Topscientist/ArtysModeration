@@ -247,8 +247,7 @@ async def on_message(message):
     elif msg.startswith('arty config'):
         owner = message.guild.owner_id
         author = message.author.id
-        writer = message.author.mention
-        if author == owner:
+        if author == owner or author == 786182411465392128:
             embed = discord.Embed(title="⚙️ Bot Settings! ⚙️",
                                   colour=discord.Colour(0))
 
@@ -268,27 +267,9 @@ async def on_message(message):
                 'Command> Configuration page for bot viewed in a discord server'
             )
 
-        elif writer == '<@786182411465392128>':
-            embed = discord.Embed(title="⚙️ Bot Settings!⚙️",
-                                  colour=discord.Colour(0))
-
-            embed.add_field(
-                name=f"**arty cheer up true/false**",
-                value=
-                "_Cheer up is a chat feature which looks for sad words in peoples messages then send them a message of encurouragment. [Enabled By Defult]_",
-                inline=False)
-            embed.add_field(
-                name=f"**arty mod true/false**:",
-                value=
-                "_ Moderation is a chat feature that identifies and removes all swear and NSWF words. [Enabled By Defult]_",
-                inline=False)
-
-            await message.channel.send(embed=embed)
-            print('Command> config executed')
-
         else:
             embed = discord.Embed(
-                title='💥 Error 401',
+                title='💥 Error!',
                 description='Only the guild owner can change this!',
                 color=discord.Colour.red())
             await message.channel.send(embed=embed)
